@@ -1,0 +1,47 @@
+<div style="max-width: 700px; margin: 40px auto; padding: 30px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;">
+  <h1 style="color: #343a40; margin-bottom: 30px; text-align: center;">Edit Patient</h1>
+
+
+  <%= form_with(model: @patient, local: true) do |form| %>
+    <% if @patient.errors.any? %>
+      <div class="alert alert-danger" style="text-align: center; width: 100%; max-width: 600px;">
+        <h4><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h4>
+        <ul>
+          <% @patient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3" style="width: 100%; max-width: 600px;">
+      <%= form.label :first_name, class: "form-label" %>
+      <%= form.text_field :first_name, class: "form-control", placeholder: "Enter first name" %>
+    </div><br>
+
+    <div class="mb-3" style="width: 100%; max-width: 600px;">
+      <%= form.label :last_name, class: "form-label" %>
+      <%= form.text_field :last_name, class: "form-control", placeholder: "Enter last name" %>
+    </div><br>
+
+    <div class="mb-3" style="width: 100%; max-width: 600px;">
+      <%= form.label :dob, class: "form-label" %>
+      <%= form.date_field :dob, class: "form-control" %>
+    </div><br>
+
+    <div class="mb-3" style="width: 100%; max-width: 600px;">
+      <%= form.label :phone, class: "form-label" %>
+      <%= form.text_field :phone, class: "form-control", placeholder: "Enter phone number" %>
+    </div><br>
+
+    <div class="mb-3" style="width: 100%; max-width: 600px;">
+      <%= form.label :address, class: "form-label" %>
+      <%= form.text_area :address, class: "form-control", placeholder: "Enter address", rows: 3 %>
+    </div><br>
+
+    <div class="d-flex justify-content-center" style="gap: 20px; margin-top: 20px;">
+      <%= form.submit 'Update Patient', class: 'btn btn-primary' %>
+      <%= link_to 'Back', patients_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>

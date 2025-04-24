@@ -1,0 +1,19 @@
+<div style="max-width: 500px; margin: 80px auto; padding: 40px; background-color: #f8f9fa; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+  <h1 style="color: #343a40; margin-bottom: 30px; text-align: center;">Login to Healthcare</h1>
+
+  <%= form_with url: login_path, local: true do |f| %>
+    <div style="margin-bottom: 20px;">
+      <label for="email" style="font-weight: bold; color: #495057;">Email</label>
+      <%= text_field_tag :email, nil, id: 'email', class: 'form-control', style: "width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ced4da; margin-top: 5px;" %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="password" style="font-weight: bold; color: #495057;">Password</label>
+      <%= password_field_tag :password, nil, id: 'password', class: 'form-control', style: "width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ced4da; margin-top: 5px;" %>
+    </div>
+
+    <div style="text-align: center;">
+      <%= submit_tag "Login", class: 'btn btn-primary', style: "padding: 10px 30px;" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+<div style="max-width: 800px; margin: 40px auto; padding: 20px; background: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; margin-bottom: 30px;">📊 Patient Registrations Over Time</h2>
+
+  <% if @patient_counts.present? %>
+    <div style="height: 400px;">
+      <%= line_chart @patient_counts,
+          xtitle: "Date",
+          ytitle: "Registrations",
+          points: true,
+          library: {
+            backgroundColor: "#ffffff",
+            title: { display: false }
+          } %>
+    </div>
+  <% else %>
+    <p style="text-align: center; font-style: italic; color: #777;">No data available.</p>
+  <% end %>
+</div>

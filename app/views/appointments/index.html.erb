@@ -1,0 +1,16 @@
+<h1>Appointments</h1>
+<%= link_to "New Appointment", new_appointment_path %>
+<table>
+  <thead>
+    <tr><th>Patient</th><th>Doctor</th><th>Date</th></tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |a| %>
+      <tr>
+        <td><%= a.patient.first_name %> <%= a.patient.last_name %></td>
+        <td><%= a.doctor.email %></td>
+        <td><%= a.appointment_date.strftime("%d-%m-%Y %I:%M %p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,14 @@
+<div style="max-width: 700px; margin: 40px auto; padding: 30px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+  <h1 style="color: #343a40; margin-bottom: 30px;">Patient Details</h1>
+
+  <p><strong>First Name:</strong> <%= @patient.first_name %></p>
+  <p><strong>Last Name:</strong> <%= @patient.last_name %></p>
+  <p><strong>Date of Birth:</strong> <%= @patient.dob %></p>
+  <p><strong>Phone:</strong> <%= @patient.phone %></p>
+  <p><strong>Address:</strong> <%= @patient.address %></p>
+
+  <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+    <%= link_to 'Edit', edit_patient_path(@patient), class: 'btn btn-warning' %>
+    <%= link_to 'Back to Patients', patients_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

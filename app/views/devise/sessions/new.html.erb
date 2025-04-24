@@ -1,0 +1,31 @@
+<h1>Login to Healthcare Management System</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if resource.errors.any? %>
+    <div>
+      <h2>Login Error</h2>
+      <ul>
+        <% resource.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
+
+<%= link_to "Forgot your password?", new_user_password_path %><br />
+<%= link_to "Sign up", new_user_registration_path %>
